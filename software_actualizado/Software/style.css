@@ -1,0 +1,33 @@
+/* Estilos para la sección de registro de cliente */
+#registro-cliente {
+	background-color: #F5F5F5;
+	padding: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #DDDDDD;
+}
+
+#registro-cliente form {
+	display: flex;
+	flex-direction: column;
+}
+
+#registro-cliente label {
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+#registro-cliente input[type="text"], #registro-cliente input[type="password"] {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #CCCCCC;
+	border-radius: 5px;
+}
+
+#registro-cliente input[type="submit"] {
+	background-color: #ff0066;
+	color: #FFFFFF;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	cursor: pointer;
+}

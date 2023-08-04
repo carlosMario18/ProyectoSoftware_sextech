@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="javascript.js"></script>
+    <meta charset="UTF-8">
+    <title>Debilidad sexShop(inicio)</title>
+    <link rel="stylesheet" href="normalize.css">
+    <!-- Agrega aquí tus estilos CSS y enlaces a archivos de JavaScript si los necesitas -->
+</head>
+<body>
+    <header>
+        <h1 class="titulo">Debilidad <span>SexShop</span> </span></h1>
+        <nav>
+            <a class="inicio" href="paginaInicio.html">Inicio</a>
+							<a class="categorias" href="categorias.html">Categorias</a>
+									<a class="novedades" href="novedades.html">Novedades</a>
+											<a class="lista de deseos" href="lista.html">Lista de deseos</a>
+            <!-- Agrega aquí tus elementos de navegación si los tienes -->
+        </nav>
+    </header>
+    <section id="busqueda-producto">
+        <h2>Búsqueda de producto</h2>
+        <form>
+          <label for="busqueda">Buscar:</label>
+          <input type="text" id="busqueda" name="busqueda">
+          <button type="submit" value="Buscar">Buscar</button>
+        </form>
+      </section>
+      
+      <section id="opiniones">
+        <h2>Opiniones y Valoraciones</h2>
+        <button onclick="mostrarOpiniones()">Mostrar opiniones</button>
+        <div id="opinionesContainer" style="display: none;"></div>
+        </section>
+        <script>
+          function mostrarOpiniones() {
+            var opinionesContainer = document.getElementById('opinionesContainer');
+            opinionesContainer.style.display = 'block';
+      
+            var opiniones = [
+              '¡Me encantó!',
+              'Buena experiencia, lo recomiendo.',
+              'No cumplió mis expectativas.',
+              'El producto llegó, aunque un poco demorado.',
+              'No volvería a utilizarlo.'
+            ];
+      
+            for (var i = 0; i < opiniones.length; i++) {
+              var opinion = opiniones[i];
+              var opinionElement = document.createElement('p');
+              opinionElement.textContent = 'Opinión ' + (i + 1) + ': ' + opinion;
+              opinionesContainer.appendChild(opinionElement);
+            }
+          }
+        </script>
+
+</main>
+
+<button id="ver-carrito">Ver carrito de compras</button>
+
+    <script>
+        document.getElementById("ver-carrito").addEventListener("click", function() {
+            window.location.href = "carrito_compras.html";
+        });
+    </script>
+
+<footer>
+    <div class="contacto">
+      <h3>Contacto</h3>
+      <p>Dirección: Cra 20, Av. Ambala #60-107, Ibagué, Tolima</p>
+      <p>Correo: info@debilidadsexshop.com</p>
+      <p>Celular: 312 2167390</p>
+      <p>Ciudad: Ibagué</p>
+    </div>
+  </footer>
+
+  <p>Derechos de autor © 2023 Carlos Mario Bernal Cuéllar -Mario Daniel Orozco Muñoz -Daniel Santiago Cárdenas. Todos los derechos reservados.</p>
+
+  
+</footer>
+
+<script > document.addEventListener('DOMContentLoaded', function () {
+    // Obtener el formulario de registro
+    const form = document.querySelector('#registro-cliente');
+  
+    // Agregar el evento de envío del formulario
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+  
+      // Obtener los valores del formulario
+      const nombre = document.querySelector('#nombre').value;
+      const correo = document.querySelector('#correo').value;
+      const contrasena = document.querySelector('#contrasena').value;
+      const confirmarContrasena = document.querySelector('#confirmar-contrasena').value;
+  
+      // Validar que los campos no estén vacíos
+      if (!nombre || !correo || !contrasena || !confirmarContrasena) {
+        mostrarMensajeError('Todos los campos son requeridos');
+        return;
+      }
+  
+      // Validar que las contraseñas coincidan
+      if (contrasena !== confirmarContrasena) {
+        mostrarMensajeError('Las contraseñas no coinciden');
+        return;
+      }
+  
+      // Crear un objeto XMLHttpRequest
+      const xhr = new XMLHttpRequest();
+  
+      // Configurar la petición
+      xhr.open('POST', 'registro.php');
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  
+      // Definir la función de callback para manejar la respuesta
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            // La petición ha sido exitosa, procesar la respuesta
+            const respuesta = JSON.parse(xhr.responseText);
+            if (respuesta.success) {
+              mostrarMensajeExito(respuesta.message);
+              limpiarFormulario();
+            } else {
+              mostrarMensajeError(respuesta.message);
+            }
+          } else {
+            // La petición ha fallado
+            mostrarMensajeError('Ha ocurrido un error: ' + xhr.status);
+          }
+        }
+      };
+  
+      // Enviar la petición con los datos del formulario
+      const datos = 'nombre=' + encodeURIComponent(nombre) +
+        '&correo=' + encodeURIComponent(correo) +
+        '&contrasena=' + encodeURIComponent(contrasena);
+        xhr.send(datos);
+      });
+  
+      // Función para mostrar un mensaje de error
+      function mostrarMensajeError(mensaje) {
+        const mensajeError = document.querySelector('#mensaje-error');
+        mensajeError.style.display = 'block';
+        mensajeError.textContent = mensaje;
+  
+        // Ocultar el mensaje de éxito si está visible
+        const mensajeExito = document.querySelector('#mensaje-exito');
+        if (mensajeExito.style.display === 'block') {
+          mensajeExito.style.display = 'none';
+        }
+      }
+  
+      // Función para mostrar un mensaje de éxito
+      function mostrarMensajeExito(mensaje) {
+        const mensajeExito = document.querySelector('#mensaje-exito');
+        mensajeExito.style.display = 'block';
+        mensajeExito.textContent = mensaje;
+  
+        // Ocultar el mensaje de error si está visible
+        const mensajeError = document.querySelector('#mensaje-error');
+        if (mensajeError.style.display === 'block') {
+          mensajeError.style.display = 'none';
+        }
+      }
+  
+      // Función para limpiar el formulario después de un registro exitoso
+      function limpiarFormulario() {
+        document.querySelector('#nombre').value = '';
+        document.querySelector('#correo').value = '';
+        document.querySelector('#contrasena').value = '';
+        document.querySelector('#confirmar-contrasena').value = '';
+      }
+  }); </script>  
+  
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="javascript.js"></script>
+    <meta charset="UTF-8">
+    <title>Debilidad sexShop(inicio)</title>
+    <link rel="stylesheet" href="normalize.css">
+    
+    <!-- Agrega aquí tus estilos CSS y enlaces a archivos de JavaScript si los necesitas -->
+</head>
+<body>
+    <header>
+        <h1 class="titulo">Debilidad <span>SexShop</span> </span></h1>
+        <nav>
+            <a class="inicio" href="paginaInicio.html">Inicio</a>
+							<a class="categorias" href="categorias.html">Categorias</a>
+									<a class="novedades" href="novedades.html">Novedades</a>
+											<a class="lista de deseos" href="lista.html">Lista de deseos</a>
+            <!-- Agrega aquí tus elementos de navegación si los tienes -->
+        </nav>
+    </header>
+
+	<main>
+		<section id="busqueda-producto">
+			<h2>Búsqueda de producto</h2>
+			<form>
+				<label for="busqueda">Buscar:</label>
+				<input type="text" id="busqueda" name="busqueda">
+				<button type="submit" value="Buscar">Buscar</button>
+			</form>
+		</section>
+
+<!-- Contenido del carrito de compras -->
+<section id="carritos-compras">
+    <h2><button id="btn-carrito">Carrito de compras</button></h2>
+    <!-- Aquí puedes agregar la lógica para mostrar los productos del carrito -->
+
+    <script>
+        var carritos = [
+          { nombre: "Vibrador", imagen: "Img/vib.jpg", descripcion: "Es un aparato, generalmente en forma de pene, cuya vibración se utiliza para la estimulación sexual." },
+          { nombre: "Disfraz gotico sexy", imagen: "Img/dgot.jpg", descripcion: "" },
+          // Agrega más objetos de juguetes si es necesario
+        ];
+      
+        var btnCarritos = document.getElementById('btn-carrito');
+        btnCarritos.addEventListener('click', function() {
+          var contenedor = document.getElementById('carritos-compras');
+      
+          // Eliminar contenido anterior
+          contenedor.innerHTML = '';
+      
+          // Recorrer la lista de juguetes y crear elementos HTML para cada uno
+          for (var i = 0; i < carritos.length; i++) {
+            var carrito = carritos[i];
+      
+            var imagen = document.createElement('img');
+            imagen.src = carrito.imagen;
+      
+            var nombreElement = document.createElement('h3');
+            nombreElement.textContent = carrito.nombre;
+      
+            var descripcionElement = document.createElement('p');
+            descripcionElement.textContent = carrito.descripcion;
+      
+            // Agregar elementos al contenedor
+            contenedor.appendChild(nombreElement);
+            contenedor.appendChild(imagen);
+            contenedor.appendChild(descripcionElement);
+          }
+        });
+
+    </script>
+    <section id="generar-pago">
+      <h2>Generar Pago</h2>
+      <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+        <br>
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" required>
+        <br>
+        <label for="metodo-pago">Método de Pago:</label>
+        <select id="metodo-pago">
+        <option value="Contraentrega">Contraentrega</option>
+        <option value="Nequi">Nequi</option>
+        </select>
+        <br>
+        <button onclick="generarPago()">Generar Pago</button>
+      </form>
+      
+      <div id="opciones-envio" style="display: none;">
+        <label for="envio">Opciones de Envío:</label>
+        <select id="envio"></select>
+      </div>
+      
+      <div id="informacion-pago" style="display: none;"></div>
+      </section>
+</section>
+  
+    </main>
+
+    <footer>
+		<div class="contacto">
+            <h3>Contacto</h3>
+            <p>Dirección: Cra 20, Av. Ambala #60-107, Ibagué, Tolima</p>
+            <p>Correo: info@debilidadsexshop.com</p>
+            <p>Celular: 312 2167390</p>
+            <p>Ciudad: Ibagué</p>
+          </div>
+	</footer>
+</body>
+</html>

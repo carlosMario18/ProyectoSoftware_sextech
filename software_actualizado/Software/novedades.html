@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="javascript.js"></script>
+    <meta charset="UTF-8">
+    <title>Debilidad sexShop(novedades)</title>
+    <!-- Agrega aquí tus estilos CSS y enlaces a archivos de JavaScript si los necesitas -->
+</head>
+<body>
+    <header>
+        <h1 class="titulo">Debilidad <span>SexShop</span> </span></h1>
+        <nav>
+            <a class="inicio" href="paginaInicio.html">Inicio</a>
+							<a class="categorias" href="categorias.html">Categorias</a>
+									<a class="novedades" href="novedades.html">Novedades</a>
+											<a class="lista de deseos" href="lista.html">Lista de deseos</a>
+            <!-- Agrega aquí tus elementos de navegación si los tienes -->
+        </nav>
+    </header>
+
+    <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #contenido {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <section id="novedades">
+    <h2>Novedades</h2>
+
+    <button id="btn-desplegar" onclick="toggleContenido()">Novedades</button>
+    <div id="contenido">
+      <p>Estas son las últimas novedades.</p>
+      <div id="imagenes">
+        <!-- Las imágenes de las novedades se agregarán dinámicamente aquí -->
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var carritos = [
+      { nombre: "Vibrador", imagen: "Img/vib.jpg", descripcion: "Es un aparato, generalmente en forma de pene, cuya vibración se utiliza para la estimulación sexual." },
+      { nombre: "Disfraz gotico sexy", imagen: "Img/dgot.jpg", descripcion: "" },
+      // Agrega más objetos de juguetes si es necesario
+    ];
+
+    function toggleContenido() {
+      var contenido = document.getElementById("contenido");
+      var btnDesplegar = document.getElementById("btn-desplegar");
+
+      if (contenido.style.display === "none") {
+        contenido.style.display = "block";
+        btnDesplegar.textContent = "Cerrar Novedades";
+        mostrarImagenes();
+      } else {
+        contenido.style.display = "none";
+        btnDesplegar.textContent = "Novedades";
+      }
+    }
+
+    function mostrarImagenes() {
+      var imagenesContainer = document.getElementById("imagenes");
+
+      // Eliminar imágenes anteriores
+      imagenesContainer.innerHTML = "";
+
+      // Agregar imágenes de las novedades
+      for (var i = 0; i < carritos.length; i++) {
+        var carrito = carritos[i];
+
+        var imagen = document.createElement("img");
+        imagen.src = carrito.imagen;
+
+        var nombreElement = document.createElement("h3");
+        nombreElement.textContent = carrito.nombre;
+
+        var descripcionElement = document.createElement("p");
+        descripcionElement.textContent = carrito.descripcion;
+
+        // Agregar elementos al contenedor de imágenes
+        imagenesContainer.appendChild(nombreElement);
+        imagenesContainer.appendChild(imagen);
+        imagenesContainer.appendChild(descripcionElement);
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+      <footer>
+		<div class="contacto">
+		  <h3>Contacto</h3>
+		  <p>Dirección: Cra 20, Av. Ambala #60-107, Ibagué, Tolima</p>
+		  <p>Correo: info@debilidadsexshop.com</p>
+		  <p>Celular: 312 2167390</p>
+		  <p>Ciudad: Ibagué</p>
+		</div>
+	  </footer>
+
+      <p>Derechos de autor © 2023 Carlos Mario Bernal Cuéllar -Mario Daniel Orozco Muñoz -Daniel Santiago Cárdenas. Todos los derechos reservados.</p>
+    </footer>
+  
+	  
+</body>
+</html>
