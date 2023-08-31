@@ -66,17 +66,37 @@
           </form></div>
 
         </nav>
-		 </header>
-        
-         <section class="section">
-            <img class="section_imagen" src="/img/vibradores.png" alt="vibradores">
-            <img class="section_imagen" src="/img/lubricantes-naturales-sin-quimicos-condones-de-marca.png" alt="lubircantes"> 
-            <img class="section_imagen s1" src="/img/s1.png" alt="disfraz">
-            
-            
-    
-        </section>
 
+    </header>
+
+    <section>
+        <div class="categorias">
+            <button class="categoria" onclick="mostrarContenido(1)">Juguetes</button>
+            <button class="categoria" onclick="mostrarContenido(2)">Lenceria</button>
+            <button class="categoria" onclick="mostrarContenido(3)">Lubricantes</button>
+            <button class="categoria" onclick="mostrarContenido(4)">Preservativos</button>
+          </div>
+          
+          <div class="contenido" id="contenido1">Lista de Juguetes</div>
+          <div class="contenido" id="contenido2">Lista de lenceria</div>
+          <div class="contenido" id="contenido3">Lista de lubricantes</div>
+          <div class="contenido" id="contenido4">Lista de Preservativos</div>
+      </section>
+
+      <script>
+        function mostrarContenido(numero) {
+        // Ocultar todos los contenidos
+        var contenidos = document.getElementsByClassName("contenido");
+        for (var i = 0; i < contenidos.length; i++) {
+            contenidos[i].style.display = "none";
+        }
+
+        // Mostrar el contenido seleccionado
+        var contenido = document.getElementById("contenido" + numero);
+        contenido.style.display = "block";
+        }
+      </script>
+        
         
         <footer class="footer">
             <p>Todos los derechos reservados</p>
