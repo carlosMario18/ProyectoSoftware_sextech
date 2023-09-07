@@ -284,6 +284,7 @@ background-color: #e63e3e;
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    /* background-image:  */
   }
   
   .categorias .categoria {
@@ -510,7 +511,7 @@ clear: both; /* Limpia los flotadores anteriores */
   .footer {
     text-align: center;
 }
-/*IMAGENES DE PRODUCTOS**/
+/*IMAGENES DE PRODUCTOS CATEGORIAS**/
 .imagen {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -523,9 +524,11 @@ clear: both; /* Limpia los flotadores anteriores */
 }
 
 .imagen__img{
-    max-width: 50%;
-    height: auto;
+    max-width: 100%;
+    height: 25rem;
     padding: 2.5rem;
+    margin: 0 auto;
     /*display: block;**/
     /*margin: 0 auto;**/
 }
+
